@@ -7,21 +7,22 @@ minetest.after(5,
 )
 
 local ace_noise_siren_handle
-local siren_state = false
+local siren_state = "off"
 
 minetest.register_on_punchnode(
    function(pos, node, puncher)
       if node.name == "ace_noise:noise"
       then
-         if not siren_state
+         if siren_state == "off"
          then
             minetest.chat_send_all("EMERGENCY SIREN ACTIVATED!")
             ace_noise_siren_handle = minetest.sound_play("ace_noise_civildefense", {gain = 1.0,})
+            siren_state = "on"
          else
             minetest.chat_send_all("All Clear. All Clear.")
             minetest.sound_stop(ace_noise_siren_handle)
+            siren_state = "off"
          end
-         siren_state = not siren_state
          print("ace_noise: ace_noise_siren_handle = " .. ace_noise_siren_handle)
          print("ace_noise: siren_state = " .. tostring(siren_state))
       end
