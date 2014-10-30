@@ -16,7 +16,7 @@ minetest.register_on_punchnode(
          if siren_state == "off"
          then
             minetest.chat_send_all("EMERGENCY SIREN ACTIVATED!")
-            ace_noise_siren_handle = minetest.sound_play("ace_noise_civildefense", {gain = 1.0,})
+            ace_noise_siren_handle = minetest.sound_play("ace_noise_civildefense", {pos = pos, gain = 1.0,})
             siren_state = "on"
          else
             minetest.chat_send_all("All Clear. All Clear.")
