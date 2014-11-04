@@ -1,4 +1,4 @@
-print("ace_noise: ++++ Hahahaha - hello from Dad +++++")
+print("ace_noise: mod loading")
 
 minetest.after(5,
 	       function(params)
@@ -33,3 +33,5 @@ minetest.register_node("ace_noise:noise", {
                           description = "Noise",
                           tiles = {"ace_noise_noise_block.png"},
 })
+
+print("ace_noise: mod loaded")
